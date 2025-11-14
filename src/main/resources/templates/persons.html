@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>persons</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+<h1>Persons</h1>
+<table class="table table-bordered border-primary">
+    <thead>
+        <tr>
+            <th>NAME</th>
+            <th>BIRTH DAY</th>
+            <th>AGE</th>
+            <th>SALARY</th>
+            <th>PHOTO</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="p : ${persons}">
+            <td th:text="${p.name}"></td>
+            <td th:text="${p.birthday}"></td>
+            <td th:text="${p.age}"></td>
+            <td th:text="${p.salary}"></td>
+            <td>
+                <img th:src="${p.photo}" th:alt="|photo of ${p.name}|">
+            </td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

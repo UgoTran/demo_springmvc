@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 // định nghĩa đây là controller theo mô hình MVC
 @Controller
@@ -63,4 +64,16 @@ public class HelloController {
         log.info("user: {}", user);
         return ResponseEntity.ok(user);
     }
+
+    // điều hướng về̀ trang thymeleaf hello
+    @GetMapping("/hello")
+    public ModelAndView helloView(@RequestParam String name) {
+        //ModelAndView chứa thymeleaf & tập hợp gtri, biến, đổ vào trang thymeleaf thông qua th tag
+        //"hello" tên file html trong resources/template
+        ModelAndView hello = new ModelAndView("hello");
+        //"message" tên object chứa gtri key-value
+        hello.addObject("message", "Hello World MSG: " + name);
+        return hello;
+    }
+
 }
