@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>person details </title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous">
+        $(document).ready(function () {
+            //todo ko hoạt động
+            $("#create").click(function () {
+                let person = {
+                    id: $("#person_id").val(),
+                    age: $("#age").val(),
+                    birthday: $("#birthday").val(),
+                    salary: $("#salary").val(),
+                    photo: $("#photo").val(),
+                };
+                console.log(person);
+
+                $.post("/api/person",
+                    JSON.stringify(person),
+                    function (response) {
+                        console.log(response);
+                    });
+            });
+        });
+    </script>
+</head>
+<body>
+<a href="/persons"> Back to list </a>
+<hr>
+<div>
+    Age: <input type="text" id="age" value="10"> <br>
+    Birthday: <input type="text" id="birthday" value="1995-04-05"> <br>
+    Salary: <input type="number" id="salary" value="10.9"> <br>
+    Photo: <input type="text" id="photo" value="http://google.com"> <br>
+    <button id="create"> Create</button>
+</div>
+
+</body>
+</html>
