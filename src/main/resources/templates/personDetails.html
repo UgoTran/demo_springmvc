@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>person details </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+<a href="/persons"> Back to list </a>
+<hr>
+<!--nếu p bị null thì ko hiển thị -->
+<div th:if="${p != null}">
+    ID: <span th:text="${p.id}"></span> <br>
+    Age: <span th:text="${p.age}"></span> <br>
+    Birthday: <span th:text="${p.birthday}"></span> <br>
+    Salary: <span th:text="${p.salary}"></span> <br>
+    Photo: <img th:src="${p.photo}" th:alt="|photo of ${p.name}|">
+    <button> Update </button>
+</div>
+
+<!--xử lý dùng condition-->
+<div th:if="${p == null}">
+    <strong th:text = "|ID ${idInput} not found |">  </strong>
+</div>
+
+</body>
+</html>
