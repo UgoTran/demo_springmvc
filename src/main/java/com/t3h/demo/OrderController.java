@@ -15,6 +15,10 @@ public class OrderController {
     @GetMapping("/orders")
 //    @ResponseBody
     public ResponseEntity<?> getOrders() {
-        return ResponseEntity.ok(orderService.findAll());
+        return ResponseEntity.ok(orderService.findOrdersAndCustomer3());
+//        return ResponseEntity.ok(orderService.findOrdersAndCustomer2());
+//        return ResponseEntity.ok(orderService.findOrdersAndCustomer());
+//        return ResponseEntity.ok(orderService.findAll("Shipped", 496L));
+//        return ResponseEntity.ok(orderService.findAll());
     }
 }

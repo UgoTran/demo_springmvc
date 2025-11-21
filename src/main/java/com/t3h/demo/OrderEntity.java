@@ -4,6 +4,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import lombok.Data;
 
 import java.time.LocalDate;
@@ -20,4 +21,9 @@ public class OrderEntity {
     private String status;
     private String comments;
     private Long customerNumber;
+//
+    @Transient // bỏ qua filed án xạ với bảng
+    private String customerName;
+//    @Transient
+//    private String phone;
 }
